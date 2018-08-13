@@ -1,6 +1,83 @@
+<!DOCTYPE html>
 
-<ul>
-{% for recruit in twenty_19 %}
-    <li>{{ recruit.name }}</li>
-{% endfor %}
-</ul>
+<!--[if lt IE 7 ]><html class="no-js ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Oswald:300,400,700|Roboto+Condensed:400,400i,700,700i|Crimson+Text:400,400i,700,700i|Rubik:400,500,700,900">
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+	<script src="//cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js"></script>
+
+</head>
+<body>
+	<table id="recruits">
+		<thead>
+			<tr>
+				<th>
+					Name
+				</th>
+				<th>
+					Postion
+				</th>
+				<th>
+					24/7
+				</th>
+				<th>
+					Rivals
+				</th>
+				<th>
+					Height
+				</th>
+				<th>
+					Weight
+				</th>
+				<th>
+					Hometown
+				</th>
+				<th>
+					Commit date
+				</th>
+				<th>
+					Twitter
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for recruit in twenty_19 %}
+			<tr>
+				<td>{{ recruit.name }}</td>
+				<td>{{ recruit.position }}</td>
+				<td>{{ recruit.twentyfour_7 }}</td>
+				<td>{{ recruit.rivals }}</td>
+				<td>{{ recruit.height }}</td>
+				<td>{{ recruit.weight }}</td>
+				<td>{{ recruit.hometown }}</td>
+				<td>{{ recruit.commit_date|format_date }}</td>
+				<td><a href="https://twitter.com/{{ recruit.twitter_handle }}" target="_blank" rel="noopener">{{ recruit.twitter_handle }}</a></td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	<script>
+		$(document).ready(function(){
+			$.fn.dataTable.moment( 'MMM DD, YYYY' );
+
+			$('#recruits').DataTable({
+				paging: false
+			});
+		});
+	</script>
+</body>
+
+</html>
