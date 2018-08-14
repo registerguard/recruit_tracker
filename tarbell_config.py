@@ -25,7 +25,7 @@ EXCLUDES = ["*.md", "requirements.txt"]
 # This is useful for for automated deployment. This option may be replaced by
 # command line flag or environment variable. Take care not to commit or publish
 # your credentials file.
-# CREDENTIALS_PATH = ""
+CREDENTIALS_PATH = "/Users/jheasly/.tarbell/client_secrets.json"
 
 # S3 bucket configuration
 S3_BUCKETS = {
