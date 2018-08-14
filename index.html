@@ -70,17 +70,20 @@
 		</tbody>
 	</table>
 	<script>
-		$(document).ready(function(){
+		function doTable() {
 			$.fn.dataTable.moment( 'MMM DD, YYYY' );
 
 			$('#recruits').DataTable({
 				paging: false
 			});
-		});
+		}
+
+		$(document).ready(doTable);
 	</script>
 
 	<script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
-	<script>var pymChildRoster = new pym.Child();</script>
+	<script>var pymChildRoster = new pym.Child({ renderCallback: doTable });</script>
+
 
 </body>
 
