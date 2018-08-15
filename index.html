@@ -18,10 +18,11 @@
 	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
 	<script src="//cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js"></script>
+	<script src="//cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 
 </head>
 <body>
-	<table id="recruits">
+	<table id="recruits" class="display responsive nowrap" style="width: 100%;">
 		<thead>
 			<tr>
 				<th>
@@ -29,12 +30,6 @@
 				</th>
 				<th>
 					Postion
-				</th>
-				<th>
-					24/7
-				</th>
-				<th>
-					Rivals
 				</th>
 				<th>
 					Height
@@ -49,6 +44,12 @@
 					Commit date
 				</th>
 				<th>
+					24/7
+				</th>
+				<th>
+					Rivals
+				</th>
+				<th>
 					Twitter
 				</th>
 			</tr>
@@ -58,12 +59,12 @@
 			<tr>
 				<td>{{ recruit.name }}</td>
 				<td>{{ recruit.position }}</td>
-				<td>{{ recruit.twentyfour_7 }}</td>
-				<td>{{ recruit.rivals }}</td>
 				<td>{{ recruit.height }}</td>
 				<td>{{ recruit.weight }}</td>
 				<td>{{ recruit.hometown }}</td>
 				<td>{{ recruit.commit_date|format_date }}</td>
+				<td>{{ recruit.twentyfour_7 }}</td>
+				<td>{{ recruit.rivals }}</td>
 				<td><a href="https://twitter.com/{{ recruit.twitter_handle }}" target="_blank" rel="noopener">{{ recruit.twitter_handle }}</a></td>
 			</tr>
 		{% endfor %}
@@ -81,7 +82,6 @@
 
 	<script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
 	<script>var pymChildRoster = new pym.Child({ renderCallback: doTable });</script>
-
 
 </body>
 
