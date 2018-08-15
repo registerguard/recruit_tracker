@@ -76,18 +76,24 @@
 		{% endfor %}
 		</tbody>
 	</table>
+
+	<script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+
 	<script>
-		function doTable() {
+		var pymChildRoster = new pym.Child();
+
+		$(document).ready(function(){
+
 			$.fn.dataTable.moment( 'MMM DD, YYYY' );
 
 			$('#recruits').DataTable({
 				paging: false
 			});
-		}
-	</script>
 
-	<script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
-	<script>var pymChildRoster = new pym.Child({ renderCallback: doTable });</script>
+			pymChildRoster.sendHeight();
+		});
+
+	</script>
 
 </body>
 
