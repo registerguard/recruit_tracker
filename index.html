@@ -24,6 +24,11 @@
 		body {
 			font-family: "Roboto Condensed","Helvetica Neue","Helvetica","Roboto","Arial",sans-serif;
 		}
+		iframe {
+			width: 1px;
+			min-width: 100%;
+			*width: 100%;
+		}
 	</style>
 
 </head>
@@ -87,7 +92,8 @@
 			$.fn.dataTable.moment( 'MMM DD, YYYY' );
 
 			$('#recruits').DataTable({
-				paging: false
+				paging: false,
+				responsive: true
 			});
 
 			pymChildRoster.sendHeight();
